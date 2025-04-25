@@ -5,7 +5,7 @@ pipeline {
         stage('Clone Repo') {
             steps {
                 echo 'Cloning the repo...'
-                git 'https://github.com/PPavithra9/flaskapp.git'
+                git branch: 'main', url: 'https://github.com/PPavithra9/flaskapp.git'
             }
         }
 
