@@ -5,9 +5,8 @@ pipeline {
         stage('Clone Repo') {
             steps {
                 echo 'Cloning the repo...'
-                dir("${env.WORKSPACE}") {
-                    git 'https://github.com/PPavithra9/flaskapp.git'
-        }
+                checkout scm // Automatically clones the repo based on Jenkins job configuration
+            }
         }
 
         stage('Build Docker Image') {
