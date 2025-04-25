@@ -5,10 +5,10 @@ pipeline {
         stage('Clone Repo') {
             steps {
                 echo 'Cloning the repo...'
-                // Checkout the repository
-                checkout([$class: 'GitSCM', 
-                          branches: [[name: '*/main']], 
-                          userRemoteConfigs: [[url: 'https://github.com/PPavithra9/flaskapp.git']]])
+                // Checkout the repository using GitSCM, which avoids the git config error
+                script {
+                    checkout scm
+                }
             }
         }
 
